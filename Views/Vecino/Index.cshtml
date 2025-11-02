@@ -1,0 +1,44 @@
+@model List<RegistroComunitario.Models.Vecino>
+
+@{
+    ViewData["Title"] = "Lista de Vecinos";
+}
+
+<h1 class="text-center text-primary mt-3">Lista de Vecinos Registrados</h1>
+
+<a asp-action="Crear" class="btn btn-success mb-3">Registrar nuevo</a>
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-warning">No hay registros aún.</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Identificación</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Género</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var v in Model)
+            {
+                <tr>
+                    <td>@v.Identificacion</td>
+                    <td>@v.Nombre</td>
+                    <td>@v.Apellidos</td>
+                    <td>@v.Telefono</td>
+                    <td>@v.Correo</td>
+                    <td>@v.Genero</td>
+                    <td>@v.Edad</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
